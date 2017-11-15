@@ -1,0 +1,771 @@
+! 2 digit menu ref, 4 digit button ref, 4 digit Message ref, 4 digit number of >
+! lines of text, XX, Help title text                    TOMB Program
+ 1   0   1   2  Help - RCS menu - Chronology Options
+Options associated with chronology development, select option with left mouse
+and then click "Calc CRN" to recalculate chronology values.
+ 1   1   0   4  Help - RCS menu - Power Transform or BAI 
+Selecting "Power Transform" uses Cook and Peters (1997) method (ARSTAN opt
+4). Automatically sets index calculation using residuals. May not work
+with multi RCS curves, signal-free method, ring transformation, and BFM.
+Selecting BAI will conver ring-width to basal area increment.
+ 1   2   0   3  Help - RCS menu - Use Pith Offset Option
+Intended to allow comparison of with and without pith. Generally pith offset
+estimates should always be used in RCS standardisation because of systematic
+end effect bias which can be avoided (Melvin 2007)
+ 1   3   0   3  Help - RCS menu - Index Calculation Method
+Choice of ratios (index = measurements/fitted curve) or residuals (index = 
+measurements - fitted curve). Residuals method does not stabilise the variance
+so should normally only be used with power transform. 
+ 1   4   0   3  Help - RCS menu - Mean Chronology Calculation
+Option of arithmetic mean or robust mean (ARSTAN method). Robust mean is only
+of benefit in > 5 and <20 count range. Both presume normal distribution of 
+indices which does not occur with RCS method. 
+ 1   5   0   3  Help - RCS menu - Use the Signal-Free method
+Iterative so could be slow if using BFM. Useful as it smooths the tail of 
+RCS curve(s) and reduces problem of climate signal contaminating RCS curve 
+especially in "modern" samples. 
+ 1   6   0   2  Help - RCS menu - Chronology AR Model
+Defaults to the ARSTAN "STD" (normal) with options to choose the "RES" or 
+"ARS" chronologies - processing copied from directly ARSTAN.
+ 1   7   0   3  Help - RCS menu - Distribution Adjustment to Normal.
+Default RCS chronologies have a heavily skewed distribution. Experimental
+conversion option, tree indices replaced by a randomly generated normally
+distributed series of values whilst retaining their sorted sequence.
+ 1   8   0   3  Help - RCS menu - Chronology Variance Stabilisation
+Uses the Osborn (1997) method. Option is usually necessary for "modern" 
+samples where the number of series reduces to near zero in the early years.
+Rbar based on between tree correlation so best to use mean tree chronologies.
+ 1   9   0   4  Help - RCS menu - Detrend RCS curve method
+Select one of a series of methods to detrend the RCS curve. Fitting an age-
+related spline (recommended), no detrend uses an unsmoothed RCS curve, a 
+modified negative exponential, an any slope straight line, a Hugershoff curve,
+and splines with either fixed or % of "n" series length flexibility.  
+ 1  10   0   4  Help - RCS menu - Use Multiple RCS Curves
+Allows up to 11 separate RCS curves. Equal tree counts and uses sort option 
+above. Each tree contibutes to its RCS curve and is detrended using that
+RCS curve. Best with Signal-free as RCS curves are smoother. Precreated
+RCS curves can be loaded - see select RCS curves option.
+ 1  11   0   2  Help - RCS menu - Use Alternative RCS Curves
+RCS detrending curves based on either ring age, ring diameter, mean of ring
+age and ring diameter. 
+ 1  12   0   2  Help - RCS menu - Transform Tree Means
+Only with multiple RCS curves. Mean-single will transform tree indices to  
+have the value they would have had were one-curve RCS used.
+ 1  13   0   4  Help - RCS menu - Detrend Spline Stiffness
+Either the length of 50% frequency cut off for a spline (integer between 5
+and 999) or the 50% frequency cut off by Spline as a percentage of the series
+length (negative integer between -999 and -5) - see Cook 1981. 
+(Cook 1981). Used as a high- or low-pass filter. 
+ 1  16   0   2  Help - RCS menu - Number of Multiple RCS Curves
+Allow choice of the number of RCS curves up to 11. The choice is pre-limited
+by the number of samples, e.g. >= 40 trees in each RCS curve.
+ 1  18   0   2  Help - RCS menu - Mean of Multiple Chronologies
+Only used with multiple RCS curves. Will use arithmetic (or robust) means of
+trees, means of chronologies as is or after chronology means set to 1.0.
+ 1  19  20   2  Help - RCS menu - Sort Option
+Sort the trees for multiple RCS. Options growth rate (relative to single
+RCS curve), not sorted, final tree age,or final tree diameter.
+ 1  20   0   2  Help - RCS menu - Maximum Signal-Free Iterations
+Sets a limit to the number of iterations of the signal-free method. If the 
+maximum absolute change in all indices is less that 0.002 exits iteration.
+ 1  21  21   2  Help - RCS menu - Ignore first 'n' rings
+Does not use the first few (selected number) of rings in RCS curve or in
+chronology (adjusts pith offset in processing).
+ 1   0  22   2  Help - RCS menu - Ignore first 'n' rings
+Does not use the first few (selected number) of rings in RCS curve or in
+chronology (adjusts pith offset in processing).
+ 1  23  23   1  Help - RCS menu - Leave the Program
+Exits and does not save data (use Save Data before Exit)
+ 1  24  24   2  Help - RCS menu - Select a Chronology Name
+Allows the selection of a Raw Data file from the list in "RCS.fil".
+Note: Existing data overwritten so call Save Data if data needed 
+ 1   0   2   1  Help - RCS menu - Menu Options
+Generally secondary menus, display, save and data manipulation options
+ 1  26   0   2  Help - RCS menu - Recalculate Chronology Values
+Recalculates chronology values using selected file and parameters. Needs to
+be called after every change (overwrites existing values).
+ 1  31   0   1  Help - RCS menu - Go to Save Menu
+Allows selection of data to save, output file names and file formats
+ 1  33   0   2  Help - RCS menu - Save the Current Figure as .ps file
+Saves the current figure as a post script file in main directory under the
+name "CRNplot.ps" or "Treeplot.ps". Use Display Menu for figure options.
+ 1  34   0   2  Help - RCS menu - Display Menu Options
+Allows selection of default values for choice of lines, line colours, line
+styles and plot width on each figure.
+ 1  35   0   2  Help - RCS menu - Multi RCS Curve Menu
+Not yet implemented - A number of options to enable individual trees to be
+assigned to different RCS curves
+ 1  36   0   2  Help - RCS menu - Individual Tree Menu
+A number of options to examine measurements, curves and indices of individual
+trees 
+ 1  38   0   2  Help - RCS menu - Save Chronology Parameters
+Saves the current set of chronology options / parameters in "RCSdefault.fil".
+These defaults are loaded and installed on entry to the RCS program. 
+ 1  39   0   2  Help - RCS menu - Figures Menu
+Presents menu with a series of specific report options. Specific output files
+created with default "zzz.prn".
+ 1   0  41   1  Help - Detrend menu - Curve Fitting Options
+Select from the detrending options below
+ 1  41   0   1  Help - Detrend menu - No detrend
+Use the mean raw data
+ 1  42   0   1  Help - Detrend menu - Neg/Exp Any line
+Detrend with a negative exponential, or a straight line
+ 1  43   0   2  Help - Detrend menu - Neg/Exp Any line
+Detrend with a negative exponential, or a negative slope line, or a 
+horizontal line
+ 1  44   0   1  Help - Detrend menu - Sloping Line
+Detrend with a straight line odf any slope or a horizontal line
+ 1  45   0   1  Help - Detrend menu - Negative Slope Line
+Detrend with a negative slope or horizontal line 
+ 1  46   0   1  Help - Detrend menu - Horizontal Detrend
+Detrend with a horizontal line, the mean 
+ 1  47   0   2  Help - Detrend menu - Hugershoff Curve
+Detrend with a Hugershoff curve, or negative exponential, or a negative slope
+line, or a horizontal line
+ 1  48   0   2  Help - Detrend menu - General Exponential
+Detrend with a general exponential curve, or a negative slope line, or a 
+horizontal line 
+ 1  49   0   1  Help - Detrend menu - Spline Length 'n'
+Detrend with a spline 'n' years 50% cut off 
+ 1  50   0   1  Help - Detrend menu - Spline % length 'n'
+Detrend with a spline 'n'% of series length 50% cut off
+ 1  56   0   1  Help - Tree menu - Previous Tree
+Move display back to the previous tree
+ 1   0  56   1  Help - Tree menu - Chronology Name
+Currently selected chronology name
+ 1   0   9   1  Help - Tree menu - Chronology Name
+Currently selected chronology name
+ 1  57   0   1  Help - Tree menu - Next Tree
+Move display forward to the next tree
+ 1  58   7   1  Help - Tree menu - Select a Tree
+Calls Name Menu to allow the selection of a specific tree
+ 2  55  55   3  Help - Tree menu - Sort Option
+Not fully implemented Sort the trees, for display purposes only, with options
+of not sorted, sort by final tree age, sort by final tree diameter, sort by
+tree growth rate (relative to single RCScurve) or sort by tree name.
+ 2  56   0   1  Help - Tree menu - Previous Tree
+Move display back to the previous tree
+ 2   0  57   1  Help - Tree menu - Chronology Name
+Currently selected chronology name
+ 2  57   0   1  Help - Tree menu - Next Tree
+Move display forward to the next tree
+ 2  58   7   1  Help - Tree menu - Select a Tree
+Calls Name Menu to allow the selection of a specific tree
+ 2  59   8   1  Help - Tree menu - Exit Tree Menu
+Returns to the main Start menu
+ 2  60   0   2  Help - Tree menu - Save Tree Plot
+Save the current plot to "Treeplot.ps" file using displayed characteristics.
+Use "Display Options" to change appearance
+ 2  61   0   2  Help - Tree menu - Display Options
+Allows selection of default values for choice of lines, line colours, line
+styles and plot width on each figure.
+ 3   0  26   1  Help - Display menu - Chronology Display Options
+These are a list of lines that can be plotted on graphs
+ 3   0  27   1  Help - Display menu - RCS Curve Display Options
+These are a list of lines that can be plotted on graphs
+ 3   0  28   1  Help - Display menu - Tree Display Options
+These are a list of lines that can be plotted on graphs
+ 3   0  29   2  Help - Display menu - Apply to Selected Lines
+Left click on buttons below to apply the current line defaults to the selected
+display line.
+ 3   0  30   1  Help - Display menu - Line Style to Apply
+Select line styles by clicking buttons below
+ 3  66   0   2  Help - Display menu - Save Chronology Parameters
+Saves the current set of chronology options / parameters in "RCSdefault.fil".
+These defaults are loaded and installed on entry to the RCS program. 
+ 3  67  67   2  Help - Display menu - Leave Display Menu
+Leaves the display menu, current settings are retained but not saved in
+the default file
+ 3  68  68   1  Help - Display menu - Mean RCS Curve
+Arithmetic mean of ring width by ring age. (Note: ARSTASN uses robust mean)
+ 3  69  69   1  Help - Display menu - Smooth RCS Curve
+Arithmetic mean by ring age smoothed using selected method
+ 3  70  70   1  Help - Display menu - RCS Curve Standard Deviation
+One standard deviation of the values averaged to form the RCS mean curve
+ 3  71  71   2  Help - Display menu - RCS Curve Standard Error
+One standard error about the RCS curve (Standard deviation scaled by root of
+count)
+ 3  72  72   1  Help - Display menu - RCS Curve Ring Counts
+Ring counts by cambial age
+ 3  73  73   1  Help - Display menu - Chronology Indices
+The chronology index values as calculated using selected options
+ 3  74  74   1  Help - Display menu - Chronology Standard Deviation
+One standard deviation of the values averaged to form the chronology
+ 3  75  75   1  Help - Display menu - Chronology Ring Counts
+Ring counts by calendar year
+ 3  76  76   1  Help - Display menu - Smoothed Chronology
+Low-pass smoothed chronology, uses spline with stiffness specified below
+ 3  77  77   1  Help - Display menu - Tree Raw Measurements
+Plot of measurements from raw data file
+ 3  78  78   1  Help - Display menu - Tree Detrending Curve
+Segment of the RCS curve used to detrend this tree
+ 3  79  79   2  Help - Display menu - Tree Index Series
+Tree indices created by division (or subtraction) of measurements by fitted
+curve
+ 3  80  80   1  Help - Display menu - Tree chronology
+Chronology index values for the period of selected tree
+ 3  81  81   1  Help - Display menu - RCS First Display Year
+Start of range for display of RCS curves
+ 3  82  82   1  Help - Display menu - RCS Last Display Year
+End of range for display of RCS curves
+ 3  83  83   1  Help - Display menu - Chronology First Display Year
+Start of range for display of chronology
+ 3  84  84   1  Help - Display menu - Chronology Last Display Year
+End of range for display of chronology
+ 3  85  85   1  Help - Display menu - Spline Stiffness
+Stiffness (50% cut off) of spline used to smooth the chronology
+ 3  86  86   1  Help - Display menu - Tree First Display Year
+Start of range for display of tree
+ 3  87  87   1  Help - Display menu - Tree Last Display Year
+End of range for display of tree
+ 3  88   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Mean RCS Curve
+ 3  89   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Smooth RCS Curve
+ 3  90   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to RCS Curve Standard Deviation
+ 3  91   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to RCS Curve Standard Error
+ 3  92   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to RCS Curve Ring Counts
+ 3  93   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Chronology Indices
+ 3  94   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Chronology Standard Deviation
+ 3  95   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Chronology Ring Counts
+ 3  96   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Smoothed Chronology
+ 3  97   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Tree Raw Measurements
+ 3  98   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Tree Detrending Curve
+ 3  99   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Tree Index Series
+ 3 100   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Tree chronology
+ 3 101   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Smoothed RCS curve
+ 3 102   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Mean RCS curve
+ 3 103   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to RCS standard deviation curve
+ 3 104   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to RCS standard error curve
+ 3 105   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Smoothed RCS curve
+ 3 106   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Mean RCS curve
+ 3 107   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to RCS standard deviation curve
+ 3 108   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to RCS standard error curve
+ 3 109   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Smoothed RCS curve
+ 3 110   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Mean RCS curve
+ 3 111   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to RCS standard deviation curve
+ 3 112   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to RCS standard error curve
+ 3 113   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Smoothed RCS curve
+ 3 114   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Mean RCS curve
+ 3 115   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to RCS standard deviation curve
+ 3 116   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to RCS standard error curve
+ 3 117   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Smoothed RCS curve
+ 3 118   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Mean RCS curve
+ 3 119   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to RCS standard deviation curve
+ 3 120   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to RCS standard error curve
+ 3 121   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Smoothed RCS curve
+ 3 122   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Mean RCS curve
+ 3 123   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to RCS standard deviation curve
+ 3 124   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to RCS standard error curve
+ 3 125   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Smoothed RCS curve
+ 3 126   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Mean RCS curve
+ 3 127   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to RCS standard deviation curve
+ 3 128   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to RCS standard error curve
+ 3 129   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Smoothed RCS curve
+ 3 130   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Mean RCS curve
+ 3 131   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to RCS standard deviation curve
+ 3 132   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to RCS standard error curve
+ 3 133   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Smoothed RCS curve
+ 3 134   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Mean RCS curve
+ 3 135   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to RCS standard deviation curve
+ 3 136   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to RCS standard error curve
+ 3 137   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Smoothed RCS curve
+ 3 138   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Mean RCS curve
+ 3 139   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to RCS standard deviation curve
+ 3 140   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to RCS standard error curve
+ 3 141   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Smoothed RCS curve
+ 3 142   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Mean RCS curve
+ 3 143   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to RCS standard deviation curve
+ 3 144   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to RCS standard error curve
+ 3 145   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Smoothed Chronology
+ 3 146   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Mean Chronology
+ 3 147   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Chronology standard deviation curve
+ 3 148   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Chronology standard error curve
+ 3 149   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Smoothed Chronology
+ 3 150   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Mean Chronology
+ 3 151   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Chronology standard deviation curve
+ 3 152   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Chronology standard error curve
+ 3 153   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Smoothed Chronology
+ 3 154   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Mean Chronology
+ 3 155   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Chronology standard deviation curve
+ 3 156   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Chronology standard error curve
+ 3 157   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Smoothed Chronology
+ 3 158   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Mean Chronology
+ 3 159   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Chronology standard deviation curve
+ 3 160   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Chronology standard error curve
+ 3 161   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Smoothed Chronology
+ 3 162   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Mean Chronology
+ 3 163   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Chronology standard deviation curve
+ 3 164   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Chronology standard error curve
+ 3 165   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Smoothed Chronology
+ 3 166   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Mean Chronology
+ 3 167   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Chronology standard deviation curve
+ 3 168   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Chronology standard error curve
+ 3 169   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Smoothed Chronology
+ 3 170   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Mean Chronology
+ 3 171   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Chronology standard deviation curve
+ 3 172   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Chronology standard error curve
+ 3 173   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Smoothed Chronology
+ 3 174   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Mean Chronology
+ 3 175   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Chronology standard deviation curve
+ 3 176   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Chronology standard error curve
+ 3 177   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Smoothed Chronology
+ 3 178   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Mean Chronology
+ 3 179   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Chronology standard deviation curve
+ 3 180   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Chronology standard error curve
+ 3 181   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Smoothed Chronology
+ 3 182   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Mean Chronology
+ 3 183   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Chronology standard deviation curve
+ 3 184   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Chronology standard error curve
+ 3 185   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Smoothed Chronology
+ 3 186   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Mean Chronology
+ 3 187   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Chronology standard deviation curve
+ 3 188   0   1  Help - Display menu - Apply Defaults
+Apply selected defaults to Chronology standard error curve
+ 3 190 190   3  Help - Display menu - Multi curves
+Select the action to perform when multi-curve buttons clicked.
+Can either use these buttons to turn curve displays on or off or 
+can use buttons to select line styles
+ 3 191 191   1  Help - Display menu - Line thickness
+Scrolls through a selection of line thicknesses
+ 3 192 192   1  Help - Display menu - Line Style
+Scrolls through a selection of solid or dashed lines
+ 3 193 193   1  Help - Display menu - Line Colour
+Scrolls through a selection of line colours
+ 3   0 101   1  Help - Display menu - RCS Curves
+Select the 1st Multi-RCS curve
+ 3   0 102   1  Help - Display menu - Apply Defaults
+Presents display options for multple RCS curves
+ 3   0 103   1  Help - Display menu - Apply Defaults
+Presents display options for multple RCS curve chronologies
+ 3   0 105   1  Help - Display menu - RCS Curves
+Select the 2nd Multi-RCS curve
+ 3   0 106   1  Help - Display menu - Apply Defaults
+Columns for the smoothed and mean RCS curves 
+ 3   0 107   1  Help - Display menu - Apply Defaults
+Columns for the smoothed and mean RCS curve chronologies 
+ 3   0 109   1  Help - Display menu - RCS Curves
+Select the 3rd Multi-RCS curve
+ 3   0 110   1  Help - Display menu - Apply Defaults
+Columns for the standard deviation and error of individual RCS curves 
+ 3   0 111   2  Help - Display menu - Apply Defaults
+Columns for the standard deviation of RCS curve chronologies 
+The standard error of chronologies not yet implemented
+ 3   0 113   1  Help - Display menu - RCS Curves
+Select the 4th Multi-RCS curve
+ 3   0 117   1  Help - Display menu - RCS Curves
+Select the 5th Multi-RCS curve
+ 3   0 121   1  Help - Display menu - RCS Curves
+Select the 6th Multi-RCS curve
+ 3   0 125   1  Help - Display menu - RCS Curves
+Select the 7th Multi-RCS curve
+ 3   0 129   1  Help - Display menu - RCS Curves
+Select the 8th Multi-RCS curve
+ 3   0 133   1  Help - Display menu - RCS Curves
+Select the 9th Multi-RCS curve
+ 3   0 137   1  Help - Display menu - RCS Curves
+Select the 10th Multi-RCS curve
+ 3   0 141   1  Help - Display menu - RCS Curves
+Select the 11th Multi-RCS curve
+ 3   0 145   1  Help - Display menu - RCS Curves
+Select the 1st Multi-RCS curve chronology
+ 3   0 149   1  Help - Display menu - RCS Curves
+Select the 2nd Multi-RCS curve chronology
+ 3   0 153   1  Help - Display menu - RCS Curves
+Select the 3rd Multi-RCS curve chronology
+ 3   0 157   1  Help - Display menu - RCS Curves
+Select the 4th Multi-RCS curve chronology
+ 3   0 161   1  Help - Display menu - RCS Curves
+Select the 5th Multi-RCS curve chronology
+ 3   0 165   1  Help - Display menu - RCS Curves
+Select the 6th Multi-RCS curve chronology
+ 3   0 169   1  Help - Display menu - RCS Curves
+Select the 7th Multi-RCS curve chronology
+ 3   0 173   1  Help - Display menu - RCS Curves
+Select the 8th Multi-RCS curve chronology
+ 3   0 177   1  Help - Display menu - RCS Curves
+Select the 9th Multi-RCS curve chronology
+ 3   0 181   1  Help - Display menu - RCS Curves
+Select the 10th Multi-RCS curve chronology
+ 3   0 185   1  Help - Display menu - RCS Curves
+Select the 11th Multi-RCS curve chronology
+ 4 199 199   1  Help - Save menu - Leave the Save Menu
+Exits from the save menu without saving data or defaults
+ 4 200 200   2  Help - Save menu - Output Format for Chronology files
+Choice of standard Tuscon chronology format or column format which reads into
+spreadsheet programs. See also Save Data with more options.
+ 4 201 201   3  Help - Save menu - Append or Create New File
+If append on and selected filename (including extention) exists the selected
+chronology(s) will be appended to the existing file, otherwise a new file with
+the selected name and extension will be created and data saved.
+ 4 202 202   3  Help - Save menu - Output Directory for Chronology Files
+Will save all chronology files (and look for existing files for appending)
+in the selected directory. 14 character maximum in name, to which a final "/"
+is added by the program. 
+ 4 203 203   2  Help - Save menu - Output Chronology File Name
+14 character maximum for name, to which a preceding directory name, "/" and
+trailing extension will be added by the program is added by the program. 
+ 4 204 204   2  Help - Save menu - Save the chronology(ies)
+Creates a file of directory, filename and extension and writes selected data to
+this file, either appending to or overwriting any existing file of same name.
+ 4 205 205   2  Help - Save menu - Output Format for RAW data files
+Choice of standard Tuscon decadal format, compact format, or Heidelberg. Each
+having a separate "extension" identifyer.
+ 4 206 206   2  Help - Save menu - Save the Measurement Series
+Creates a file of directory, filename and extension and writes the selected
+data to this file overwriting any existing file of same name.
+ 4 207 207   2  Help - Save menu - Output Directory for Raw Data Files
+Will save all raw data files in the selected directory. 14 character maximum
+in name, to which a final "\" is added by the program. 
+ 4 208 208   2  Help - Save menu - Output Raw Data File Name
+14 character maximum for name, to which a preceding directory name, "/" and
+trailing extension (for each series being saved) will be added by the program.
+ 4 209 209   2  Help - Save menu - Tree Sort Option
+Output tree data sorted by the selected option of: 1. no sort, 2. Tree Age,
+3. Tree Size, 4. Growth Rate, 5. Tree Name, 6. Pith Year, and 7. Last Year.
+ 4   0  10   1  Help - Save menu - Data To Save
+Select from the series below the data items to be saved
+ 4   0  11   1  Help - Save menu - Chronology File Name Extension
+Fixed values either .crn for Tuscon format or .col for column format
+ 4   0  12   1  Help - Save menu - Chronology File Name Extension
+Fixed values either .crn for Tuscon format or .col for column format
+ 4   0  13   1  Help - Save menu - Data File Name Extension
+Specific values for each type of "measurement" series that can be saved.
+ 4   0  14   1  Help - Save menu - Data File Name Extension
+Fixed value of ".rww" for saving raw measurements for each tree
+ 4   0  15   1  Help - Save menu - Data File Name Extension
+Fixed value of ".trn" for saving transformed measurements for each tree
+ 4   0  16   1  Help - Save menu - Data File Name Extension
+Fixed value of ".fre" for saving signal free tree measurements 
+ 4   0  17   1  Help - Save menu - Data File Name Extension
+Fixed value of ".crv" for saving detrending curves for each tree
+ 4   0  18   1  Help - Save menu - Data File Name Extension
+Fixed value of ".ind" for saving standard (STD) indices for each tree
+ 4   0  19   1  Help - Save menu - Data File Name Extension
+Fixed value of ".res" for saving residuals (STD) indices for each tree
+ 4 211 211   1  Help - Save menu - Data to Save
+Select this button to save the unsmoothed (mean) RCS curve
+ 4 212 212   1  Help - Save menu - Data to Save
+Select this button to save the smooth RCS curve
+ 4 213 213   1  Help - Save menu - Data to Save
+Select this button to save the RCS curve standard deviation
+ 4 214 214   1  Help - Save menu - Data to Save
+Select this button to save the RCS curve standard error
+ 4 215 215   1  Help - Save menu - Data to Save
+Select this button to save the chronology indices
+ 4 216 216   1  Help - Save menu - Data to Save
+Select this button to save the chronology standard deviation
+ 4 217 217   1  Help - Save menu - Data to Save
+Select this button to save the smoothed chronology
+ 4 218 218   1  Help - Save menu - Data to Save
+Also save individual series of the multiple RCS curves and chronologies
+ 4 219 219   2  Help - Save menu - Data to Save
+Select this button to save the RAW data (tree measurements). Useful if a
+sorted version of raw data needed . Also saves pith offset estimate files.
+ 4 220 220   1  Help - Save menu - Data to Save
+Select this button to save the transformed tree measurements
+ 4 221 221   1  Help - Save menu - Data to Save
+Select this button to save the sinal-free tree measurement series
+ 4 222 222   1  Help - Save menu - Data to Save
+Select this button to save the tree detrending curves
+ 4 223 223   1  Help - Save menu - Data to Save
+Select this button to save the tree index series
+ 4 224 224   1  Help - Save menu - Data to Save
+Select this button to save the AR modelled tree index series
+ 6 264   4   1  Help - Name menu - Choose File/Tree
+Need to left mouse button to select from the list of displayed names
+ 6 265   5   1  Help - Name menu - Exit Name Select Menu
+Currently selected item will be used
+ 6 266   0   1  Help - Name menu - Previous Page
+Scrolls backwards through pages of items to allow selection
+ 6 267   0   1  Help - Name menu - Next Page
+Scrolls forewards through pages of items to allow selection
+ 6 268 268   2  Help - Name menu - Status Button
+Records if program running or what is awaited e.g. text input, integer input,
+floating point input or simple a mouse click.
+ 7 271 271   1  Help - Figures menus - Select Option
+Select a plot option from the table
+ 7 272   0   1  Help - Figures menus - Continue/Exit
+Program ready to go to the next action
+ 7 273 273   1  Help - Figures menus - Select Chronology
+Allows the selection of a different data set.
+ 8 340   0   1  Help - Chron menu - Exit Chronology Menu
+Returns to the start menu
+ 8 341   0   1  Help - Chron menu - First selected data file
+Allows selection of individual data file from the current list
+ 8 342   0   1  Help - Chron menu - Second selected data file
+Allows selection of individual data file from the current list
+ 8   0  45   1  Help - Chron menu - Display Options
+Allows control of the period of display and spline stiffness
+ 8   0  46   1  Help - Chron menu - Display Data
+Allows control of data selection and type of plot/processing to be used
+ 8 343  47   3  Help - Chron menu - Display First Year
+Allows the user to select an alternative start date (later than maximum value
+of the two selected data sets) for display. The normalisation for display is
+always over the selected display period.
+ 8 344  48   3  Help - Chron menu - Display Last Year
+Allows the user to select an alternative end date (earlier than minimum value
+of the two selected data sets) for display. The normalisation for display is
+always over the selected display period.
+ 8 345  49   2  Help - Chron menu - Spline Stiffness
+Allows user selection of 50% frequency cut off for the smoothing used in high
+and low-pass filtering in lower level menus.
+ 8 347  50   2  Help - Chron menu - Journal on/off
+When the journal is turned "on" some of the processing results (e.g. in PCA or 
+regression calculations) will be appended to the "journal.fil".
+ 8 348   0   3  Help - Chron menu - Top Line of Data
+The user can select either the "Tree Index" data or the "Climate" data to be
+displayed in the top line of the display, thus allowing various combinations of
+comparison of chronologies and meteorological data.
+ 8 349   0   3  Help - Chron menu - Bottom Line of Data
+The user can select either the "Tree Index" data or the "Climate" data to be
+displayed in the bottom line of the display, thus allowing various combinations
+of comparison of chronologies and meteorological data.
+ 8 350   0   2  Help - Chron menu - Line Graph
+Selection of line graph shows data plotted as lines, with both sets of data
+normalised over the period of the display.
+ 8 351   0   3  Help - Chron menu - Scatter Plot
+Selection of scatter plot shows data plotted as a scatter plot, with both sets
+of data normalised over the period of the display. Mouse clicks on specific 
+values will cause the year of the value to be displayed.
+ 8 352   0   4  Help - Chron menu - Pair Sort
+Selection of pair sort shows data plotted as lines, with both sets of data
+normalised over the period of the display, but with both sets of data sorted
+on the first (top line) set of data. Mouse clicks on specific values will cause
+the year of the value to be displayed.
+ 8 353   0   2  Help - Chron menu - Cross Correlate Menu
+Selects the cross-correlation menu which allows correlation reports and plots to
+be produced for all (or selected) data series.
+ 8 354   0   2  Help - Chron menu - Regression Menu
+Selects the regression menu which allows various combination of multiple linear
+regressions to be for all (or selected) data series.
+ 8 356   0   2  Help - Start menu - Save the Current Figure as .ps file
+Saves the current figure as a post script file in base directory under the
+name "CRNplot.ps".
+ 9 366   0   1  Help - Met menu - Choose file
+Select one of the met files listed.
+ 9 367   0   1  Help - Met menu - Last Year
+Create previous years data from selected met files.
+ 9 369   0   1  Help - Met menu - Mean of files
+Create the mean file of the selected met files.
+ 9 370   0   2  Help - Met menu - High-Pass met
+Create high-pass filtered files for the selected met files, using the default 
+spline stiffness.
+ 9 371   0   2  Help - Met menu - Normalise files
+Create the normalised data files (subtract mean and divide by standard 
+deviation) for the selected met files.
+ 9 372   0   2  Help - Met menu - Low-Pass met
+Create low-pass filtered files for the selected met files, using the default 
+spline stiffness.
+ 9 373   0   1  Help - Met menu - Delete files
+Delete the selected met files.
+ 9 374   0   1  Help - Met menu - Rename file
+Rename the selected met file.
+ 9 375   0   1  Help - Met menu - Reload met files
+Reload all met data pointed at by "clim.fil".
+ 9 376   0   1  Help - Met menu - Save files
+Save the selected met files to metsav.met in column format.
+ 9 377   0   2  Help - Met menu - Principal components
+Create principal components for the selected met files. (PC1 ... PCn).
+If Journal=On the eigen values etc are reported to the Journal file.
+ 9 378   0   2  Help - Met menu - Load saved files
+Load the met files previouslysaved to metsav.met. Overwrites any existing
+met files in store
+ 9 379   0   1  Help - Met menu - Select All
+Select or Unselect all of the met files.
+ 9 380   0   2  Help - Met menu - Proceed with action
+After selecting files to action then this option needs to be clicked in
+order to carry out the selected action.
+ 9 381   0   1  Help - Met menu - Exit Met menu
+Leave the met menu (loses all unsaved data etc).
+ 9 382  43   1  Help - Met menu - Get new Name
+Type in a name and then press return.
+ 9 383   0   1  Help - Met menu - Previous Page
+Move to the previous page of file names.
+ 9 384   0   1  Help - Met menu - Next Page
+Move to the next page of file names.
+10 391   0   1  Help - Xcorr menu - Scroll Up through Table
+Select this box scrolls upwards towards the top of the table.
+10 392   0   1  Help - Xcorr menu - Scroll Left through Table
+Select this box scrolls towards the left side of the table.
+10 393   0   1  Help - Xcorr menu - Scroll Right through Table
+Select this box scrolls towards the right side of the table.
+10 394   0   1  Help - Xcorr menu - Scroll Down through Table
+Select this box scrolls downwards towards the bottom of the table.
+10 395   0   1  Help - Xcorr menu - Delete selected Columns
+Click on columns to be deleted and then select OK.
+10 396   0   1  Help - Xcorr menu - Delete selected Rows 
+Click on rows to be deleted and then select OK.
+10 397   0   1  Help - Xcorr menu - Column Selection Button
+Select individual columns and click OK to delete all others.
+10 398   0   1  Help - Xcorr menu - Row Selection Button
+Select individual rows and click OK to delete all others.
+10 399   0   2  Help - Xcorr menu - Blank 95% significannce
+Toggle to display or hide the values with less than 95% significance 
+(calculated using r1*r2 autocorrelation adjustment).
+10 400   0   1  Help - Xcorr menu - Rebuild the Table
+Reload the data and recalculate correlations.
+10 401   0   1  Help - Xcorr menu - Save Cross-Correlation Report
+Save the report as text in directory "work" as "XCrep.prn".
+10 402   0   1  Help - Xcorr menu - Table as Bar Chart or Numbers
+toggle table between a set of numbers and Bar chart displays of correlations.
+10 403   0   1  Help - Xcorr menu - OK to proceed button
+Go ahead with the selected action using the list of entries. 
+10 404   0   1  Help - Xcorr menu - Leave XCorr Menu
+Leave the cross correlation menu. 
+10 406   0   1  Help - Xcorr menu - Save as a .ps file
+Save either the numeric table (XCplot.ps) or the bar Chart (XCdisp.ps). 
+13 451   0   2  Help - Start menu - Journal On/Off
+If "On" some processing details from dettrending (e.g. signal-free convergence 
+details) will be appended to journal.prn file.
+13 452 303   1  Help - Start menu - List of filenames
+List of raw data files that can be used (default = ARS.fil).
+13 453 304   2  Help - Start menu - Raw data file name 
+Currently selected data dile. Click on name to get a list from which to select
+an alternative chronology.
+13   0 305   1  Help - Start menu - Raw data does not exist
+The raw data file does not exist - check path etc.
+13   0 306   1  Help - Start menu - No list of file names
+The selected list file name does not exist - may need path details.
+13 454 307   1  Help - Start menu - Leave the program
+Click to exit the program - does not save any outstanding data.
+13   0 319   1  Help - Start menu - List of Options
+Select a processing option from below
+13 455 308   1  Help - Start menu - Curve Detrend Menu
+Curve-fitting detrending of raw measurements.
+13 456 309   1  Help - Start menu - RCS Detrend Menu
+RCS detrending of raw measurements.
+13 457 310   3  Help - Start menu - Chron Menu
+Has many functions of "PRECON". Reads pre-built chronologies listed in the
+"crns.crn" file and meteorological data listed in the "met.file". Both need to
+be in the base directory.
+13 458 311   2  Help - Start menu - Figures Menu
+Has a number of pre-selected detrend and plot options. Some options use file
+lists (as indicated in the menu) but many options are general.
+13 459 312   3  Help - Start menu - Plot Menu
+Has a number of pre-selected detrend and plot options. Some options use file
+lists (as indicated in the menu) and many options require specific files which
+may not be generally available.
+13 460 313   3  Help - Start menu - Other Menu
+Has a number of pre-selected detrend and plot options. Some options use file
+lists (as indicated in the menu) and many options require specific files which
+may not be generally available.
+13 461 314   3  Help - Start menu - Scandinavia Menu
+Has a number of pre-selected detrend and plot options. Some options use file
+lists (as indicated in the menu) and many options require specific files which
+may not be generally available.
+13 462 315   3  Help - Start menu - Oddments Menu
+Has a number of pre-selected detrend and plot options. Some options use file
+lists (as indicated in the menu) and many options require specific files which
+may not be generally available.
+13 463 316   3  Help - Start menu - Grudd Menu
+Has a number of pre-selected detrend and plot options. Some options use file
+lists (as indicated in the menu) and many options require specific files which
+may not be generally available.
+13 464 317   3  Help - Start menu - Nature Paper
+Has a number of pre-selected detrend and plot options. Some options use file
+lists (as indicated in the menu) and many options require specific files which
+may not be generally available.
+13 465 318   3  Help - Start menu - China menu
+Has a number of pre-selected detrend and plot options. Some options use file
+lists (as indicated in the menu) and many options require specific files which
+may not be generally available.
+

@@ -1,0 +1,17 @@
+    IDT ITN RDT IND KRB ISB SFO POO SRC TRC GTR TST BFC IDB JRB SRCNO SFONO RDTNO 
+../data/finnmrg.raw                                         SPL
+PAR  40   2   7   2   1   1   1   1   1   1   1   1   1   1   1     1    10    60 
+../data/norwmrg.raw                                         SPL
+PAR  40   2   7   2   1   1   1   1   1   1   1   1   1   1   1     1    10    60 
+../data/finnmrg.raw                                         EXP
+PAR   2   2   7   2   1   1   1   1   1   1   1   1   1   1   1     1    10    60 
+../data/norwmrg.raw                                         EXP
+PAR   2   2   7   2   1   1   1   1   1   1   1   1   1   1   1     1    10    60 
+../data/finnmrg.raw                                         RC2
+PAR  -2   2   7   2   1   1   1   1   1   1   1   1   1   1   1     2    10    60 
+../data/norwmrg.raw                                         RC2
+PAR  -2   2   7   2   1   1   1   1   1   1   1   1   1   1   1     2    10    60 
+../data/finnmrg.raw                                         RC1
+PAR  -2   2   7   2   1   1   1   1   1   1   1   1   1   1   1     1    10    60 
+../data/norwmrg.raw                                         RC1
+PAR  -2   2   7   2   1   1   1   1   1   1   1   1   1   1   1     1    10    60

@@ -1,0 +1,129 @@
+DEFAULT PARAMETER VALUES FOR RCS PROGRAM
+1650 = Screen width
+1100 = Screen height
+ -2  RCS method     (IDT)
+  1  No Transform   (ITN)
+  1  Age Dep Smo    (RDT)
+  1  Ratios         (IND)
+  1  Arith Mean     (KRB)
+  1  Var.Stab Off   (ISB)
+  2  Sig Free On    (SFO)
+  1  PO on          (POO)
+  1  Single RCS     (SRC)
+  1  Age RCS        (TRC)
+  1  No Adjust      (GTR)
+  4  Growth Rate    (TST)
+  1  Mean trees     (BFC)
+  1  Ratios CRN     (IDB)
+  1  STD Chron      (JRB)
+ 11  Number of RCS curves (SRCNO)
+ 10  Max SF iterations    (SFONO)
+ 60  Spline Stiffness     (RDTNO)
+  0  Ignore 1st n rings   (IGNOR)
+  1  Tucson Data    (RFT)
+  1  Tucson CRN     (CFT)
+ 40  Display Spline Length
+ 50  RBar for EPS segment length
+PLOTTING OPTIONS
+F  0  0  0  Journal Turned off            
+F  1  0 12  Mean Ring by Age              
+T  4  0 15  Smooth RCS Curve              
+F  1  0  2  RCS Stand. Dev.               
+F  1  0 11  RCS Stand. Error              
+T  0  0  7  RCS Tree Counts               
+F  1  0 12  Chronology                    
+F  1  0  2  CRN Stand. Dev.               
+T  0  0  7  CRN Counts                    
+T  4  0 15  Smoothed CRN                  
+T  4  0  9  Ring Measures                 
+T  4  0 12  Detrend Curve                 
+T  4  0  9  Tree Index Series             
+T  4  0 12  Chronology Indices            
+T  1  0 11  1st RCS Smooth                
+F  1  0 11  1st RCS Mean                  
+F  1  0 11  1st RCS St.Dev                
+F  1  0 11  1st RCS St.Err                
+T  1  0 12  2nd RCS Smooth                
+F  1  0 12  2nd RCS Mean                  
+F  1  0 12  2nd RCS St.Dev                
+F  1  0 12  2nd RCS St.Err                
+T  1  0  2  3rd RCS Smooth                
+F  1  0  2  3rd RCS Mean                  
+F  1  0  2  3rd RCS St.Dev                
+F  1  0  2  3rd RCS St.Err                
+T  1  0 14  4th RCS Smooth                
+F  1  0 14  4th RCS Mean                  
+F  1  0 14  4th RCS St.Dev                
+F  1  0 14  4th RCS St.Err                
+T  2  0  5  5th RCS Smooth                
+F  1  0  5  5th RCS Mean                  
+F  1  0  5  5th RCS St.Dev                
+F  1  0  5  5th RCS St.Err                
+T  1  0  1  6th RCS Smooth                
+F  1  0  1  6th RCS Mean                  
+F  1  0  1  6th RCS St.Dev                
+F  1  0  1  6th RCS St.Err                
+T  1  0  6  7th RCS Smooth                
+F  1  0  6  7th RCS Mean                  
+F  1  0  6  7th RCS St.Dev                
+F  1  0  6  7th RCS St.Err                
+T  1  0 10  8th RCS Smooth                
+F  1  0 10  8th RCS Mean                  
+F  1  0 10  8th RCS St.Dev                
+F  1  0 10  8th RCS St.Err                
+T  1  0  3  9th RCS Smooth                
+F  1  0  3  9th RCS Mean                  
+F  1  0  3  9th RCS St.Dev                
+F  1  0  3  9th RCS St.Err                
+T  1  0  8  10th RCS Smooth               
+F  1  0  8  10th RCS Mean                 
+F  1  0  8  10th RCS St.Dev               
+F  1  0  8  10th RCS St.Err               
+T  2  0 13  11th RCS Smooth               
+F  1  0 13  11th RCS Mean                 
+F  1  0 13  11th RCS St.Dev               
+F  1  0 13  11th RCS St.Err               
+T  1  0 11  1st CRN Smooth                
+F  1  0 11  1st CRN Mean                  
+F  1  0 11  1st CRN St.Dev                
+F  1  0 11  1st CRN St.Err                
+T  1  0 12  2nd CRN Smooth                
+F  1  0 12  2nd CRN Mean                  
+F  1  0 12  2nd CRN St.Dev                
+F  1  0 12  2nd CRN St.Err                
+T  1  0  2  3rd CRN Smooth                
+F  1  0  2  3rd CRN Mean                  
+F  1  0  2  3rd CRN St.Dev                
+F  1  0  2  3rd CRN St.Err                
+T  1  0 14  4th CRN Smooth                
+F  1  0 14  4th CRN Mean                  
+F  1  0 14  4th CRN St.Dev                
+F  1  0 14  4th CRN St.Err                
+T  2  0  5  5th CRN Smooth                
+F  1  0  5  5th CRN Mean                  
+F  1  0  5  5th CRN St.Dev                
+F  1  0  5  5th CRN St.Err                
+T  1  0  1  6th CRN Smooth                
+F  1  0  1  6th CRN Mean                  
+F  1  0  1  6th CRN St.Dev                
+F  1  0  1  6th CRN St.Err                
+T  1  0  6  7th CRN Smooth                
+F  1  0  6  7th CRN Mean                  
+F  1  0  6  7th CRN St.Dev                
+F  1  0  6  7th CRN St.Err                
+T  1  0 10  8th CRN Smooth                
+F  1  0 10  8th CRN Mean                  
+F  1  0 10  8th CRN St.Dev                
+F  1  0 10  8th CRN St.Err                
+T  1  0  3  9th CRN Smooth                
+F  1  0  3  9th CRN Mean                  
+F  1  0  3  9th CRN St.Dev                
+F  1  0  3  9th CRN St.Err                
+T  1  0  8  10th CRN Smooth               
+F  1  0  8  10th CRN Mean                 
+F  1  0  8  10th CRN St.Dev               
+F  1  0  8  10th CRN St.Err               
+T  2  0 13  11th CRN Smooth               
+F  1  0 13  11th CRN Mean                 
+F  1  0 13  11th CRN St.Dev               
+F  1  0 13  11th CRN St.Err               
